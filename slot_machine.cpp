@@ -20,6 +20,7 @@
 
 int main(void)
 {
+    int win = 0;
     srand( time( NULL ) );
     int spin = 100000;
     int result = 0;
@@ -58,12 +59,19 @@ int main(void)
         int a = rand() % ( 3 - 0 ) + 0;
         int b = rand() % ( 3 - 0 ) + 0;
         if (result == a && result == b)
+        {
             std::cout << GREEN;
+            win = 1;
+        }
         else
             std::cout << RED;
         std::cout << "  " << result;
         std::cout << "  " << a;
         std::cout << "  " << b << F_NONE << std::endl;
+        if (win == 1)
+            std::cout << "You win !" << std::endl;
+        else
+            std::cout << "You lost.." << std::endl;
         std::cout << "enter 1 to spin or anything else to quit" << std::endl;
         std::cin >> input;
     }
